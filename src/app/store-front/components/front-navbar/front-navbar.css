@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui;
+  color: #fff;
+  margin: 0;
+  padding: 80px 30px;
+  background-color: #030303;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+nav a {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+  padding: 0.4rem 0;
+  transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+nav a:hover {
+  color: #ff7a18;
+}
+
+nav:has(a:hover) a:not(:hover) {
+  opacity: 0.3;
+}
+
