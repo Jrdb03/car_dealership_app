@@ -1,3 +1,10 @@
 <nav>
-  <a routerLink="/auth/login" class="nav-link">Login</a>
+    @if( authService.authStatus() == 'authenticated' ){
+      <button class="nav-link" (click)="authService.logout()">
+        Salir
+      </button>
+    }
+    @else if ( authService.authStatus() == 'not-authenticated'){
+      <a routerLink="/auth/login" class="nav-link">Login</a>
+    }
 </nav>

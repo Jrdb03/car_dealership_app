@@ -38,11 +38,11 @@ export class AuthService {
 
   login(email: string, password: string): Observable<boolean> {
     return this.http
-      .post<AuthResponse>(`${baseUrl}/auth/login`, {
-        email: email,
-        password: password,
-      })
+      .post<AuthResponse>(`${baseUrl}/auth/login`, 
+        { email, password }, 
+      )
       .pipe(
+        tap((resp) => console.log('Login response:', resp)),
         map((resp) => this.handleAuthSuccess(resp)),
         catchError((error: any) => this.handleAuthError(error))
       );
@@ -71,12 +71,12 @@ export class AuthService {
     localStorage.removeItem('token');
   }
 
-  private handleAuthSuccess({ token, user }: AuthResponse) {
+  private handleAuthSuccess({ access_token, user }: AuthResponse) {
     this._user.set(user);
     this._authStatus.set('authenticated');
-    this._token.set(token);
+    this._token.set(access_token);
 
-    localStorage.setItem('token', token);
+    localStorage.setItem('token', access_token);
 
     return true;
   }
