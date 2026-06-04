@@ -1,0 +1,44 @@
+<div class="cart-grid">
+
+  @for (item of cart(); track item.id) {
+
+    <div class="cart-card">
+
+      <div class="cart-info">
+        <h3>{{ item.name }}</h3>
+
+        <p class="price">
+          {{ item.price | currency }}
+        </p>
+
+        <p class="subtotal">
+          Subtotal: {{ item.price * item.quantity | currency }}
+        </p>
+      </div>
+
+      <div class="cart-actions">
+
+        <button class="qty-btn"
+                (click)="update()(item.id, item.quantity - 1, item.stock)">
+          -
+        </button>
+
+        <span class="qty">{{ item.quantity }}</span>
+
+        <button class="qty-btn"
+                (click)="update()(item.id, item.quantity + 1, item.stock)">
+          +
+        </button>
+
+        <button class="remove-btn"
+                (click)="remove()(item.id)">
+          Eliminar
+        </button>
+
+      </div>
+
+    </div>
+
+  }
+
+</div>

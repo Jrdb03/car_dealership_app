@@ -1,0 +1,48 @@
+<div class="cart-container">
+
+  <section class="cart-section">
+
+    <div class="section-header">
+      <h2>Tu Carrito</h2>
+      <p>Revisa los vehículos seleccionados antes de comprar</p>
+    </div>
+
+    @if (cart$ | async; as cart) {
+
+      @if (cart.length > 0) {
+
+        <cart-card
+            [cart]="cart"
+            [remove]="remove"
+            [update]="update">
+        </cart-card>
+
+        <div class="cart-total">
+          <h3>Total: {{ getTotal() | currency }}</h3>
+
+          <button class="checkout-btn">
+            Finalizar compra
+          </button>
+        </div>
+
+      }
+
+      @else {
+        <div class="empty-cart">
+          <h3>Tu carrito está vacío</h3>
+          <span class="material-symbols-outlined">
+            shopping_cart_off
+          </span>
+          <p>Explora nuestro catálogo y añade vehículos increíbles</p>
+
+          <a routerLink="/" class="back-btn">
+            Volver al catálogo
+          </a>
+        </div>
+      }
+
+    }
+
+  </section>
+
+</div>

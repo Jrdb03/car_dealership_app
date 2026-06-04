@@ -343,3 +343,67 @@
     height: 200px;
   }
 }
+
+/* ========================= */
+/* ADD TO CART */
+/* ========================= */
+
+.btn-add-cart {
+  width: 100%;
+  padding: 14px 20px;
+  margin-bottom: 10px;
+
+  background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+  color: white;
+
+  border: none;
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 0 4px 15px rgba(56, 161, 105, 0.35);
+}
+
+.btn-add-cart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(56, 161, 105, 0.5);
+}
+
+/* ========================= */
+/* REMOVE FROM CART */
+/* ========================= */
+
+.btn-remove-cart {
+  width: 100%;
+  padding: 14px 20px;
+  margin-bottom: 10px;
+
+  background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+  color: white;
+
+  border: none;
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 0 4px 15px rgba(229, 62, 62, 0.35);
+}
+
+.btn-remove-cart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(229, 62, 62, 0.5);
+}

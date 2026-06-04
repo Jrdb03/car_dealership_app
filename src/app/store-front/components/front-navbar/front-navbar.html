@@ -1,10 +1,40 @@
 <nav>
-    @if( authService.authStatus() == 'authenticated' ){
-      <button class="nav-link" (click)="authService.logout()">
-        Salir
-      </button>
+
+  <a routerLink="/" class="nav-link">Inicio</a>
+
+  @if (authService.authStatus() === 'authenticated') {
+
+    @if(authService.isClient()){
+      <a routerLink="/cart" class="nav-cart">
+  
+        <span class="material-symbols-outlined">
+          shopping_cart
+        </span>
+        Carrito
+          
+        @let cart = (cart$ | async);
+  
+        @if (cart && cart.length > 0) {
+          <span class="cart-badge">
+            {{
+              cart.reduce((sum, item) => sum + item.quantity, 0)
+            }}
+          </span>
+        }
+  
+      </a>
     }
-    @else if ( authService.authStatus() == 'not-authenticated'){
-      <a routerLink="/auth/login" class="nav-link">Login</a>
-    }
+
+    <button class="nav-link" (click)="authService.logout()">
+      Salir
+    </button>
+
+  } @else if(authService.authStatus() == 'not-authenticated') {
+
+    <a routerLink="/auth/login" class="nav-link">
+      Login
+    </a>
+
+  }
+
 </nav>
