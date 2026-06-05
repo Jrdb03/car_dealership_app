@@ -1,40 +1,40 @@
-<nav>
-
-  <a routerLink="/" class="nav-link">Inicio</a>
-
-  @if (authService.authStatus() === 'authenticated') {
-
-    @if(authService.isClient()){
-      <a routerLink="/cart" class="nav-cart">
-  
-        <span class="material-symbols-outlined">
-          shopping_cart
-        </span>
-        Carrito
-          
-        @let cart = (cart$ | async);
-  
-        @if (cart && cart.length > 0) {
-          <span class="cart-badge">
-            {{
-              cart.reduce((sum, item) => sum + item.quantity, 0)
-            }}
-          </span>
-        }
-  
-      </a>
-    }
-
-    <button class="nav-link" (click)="authService.logout()">
-      Salir
-    </button>
-
-  } @else if(authService.authStatus() == 'not-authenticated') {
-
-    <a routerLink="/auth/login" class="nav-link">
-      Login
+<nav class="navbar">
+  <div class="navbar-container">
+    <a routerLink="/" class="navbar-brand">
+      <span class="brand-highlight">Elite</span>Motors
     </a>
 
-  }
+    <div class="navbar-links">
+      <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a>
 
+      @if (authService.authStatus() === 'authenticated') {
+        @if (authService.isAdmin()) {
+          <a routerLink="/sales" class="nav-link" routerLinkActive="active">Ventas</a>
+        }
+      }
+    </div>
+
+    <div class="navbar-actions">
+      @if (authService.authStatus() === 'authenticated') {
+        @if (authService.isClient()) {
+          <a routerLink="/cart" class="nav-cart" routerLinkActive="active">
+            <span class="material-symbols-outlined">shopping_cart</span>
+            <span>Carrito</span>
+            @if (cartCount | async) {
+              <span class="cart-badge">{{ cartCount | async }}</span>
+            }
+          </a>
+        }
+        
+        <button class="btn-logout" (click)="logout()">
+          <span class="material-symbols-outlined logout-icon">logout</span>
+          Salir
+        </button>
+      } @else if (authService.authStatus() === 'not-authenticated') {
+        <a routerLink="/auth/login" class="btn-login">
+          Login
+        </a>
+      }
+    </div>
+  </div>
 </nav>

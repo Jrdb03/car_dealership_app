@@ -1,0 +1,295 @@
+/* ========================= */
+/* SALES CONTAINER */
+/* ========================= */
+
+.sales-container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.sales-section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header h2 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 10px 0;
+}
+
+.section-header p {
+  font-size: 18px;
+  color: #718096;
+}
+
+/* ========================= */
+/* LOADING STATE */
+/* ========================= */
+
+.loading-state {
+  text-align: center;
+  padding: 60px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.loader {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  border: 5px solid #667eea;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ========================= */
+/* SALES LIST & CARDS */
+/* ========================= */
+
+.sales-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.sale-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sale-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+.sale-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #edf2f7;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.sale-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sale-id {
+  font-family: monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: #2d3748;
+}
+
+.sale-date {
+  font-size: 13px;
+  color: #718096;
+}
+
+.sale-badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-completed {
+  background-color: #e6fffa;
+  color: #234e52;
+}
+
+/* ========================= */
+/* SALE BODY & ITEMS */
+/* ========================= */
+
+.sale-body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sale-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+.sale-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.item-details h4 {
+  font-size: 17px;
+  color: #2d3748;
+  margin: 0 0 5px 0;
+}
+
+.item-year {
+  font-weight: 400;
+  color: #a0aec0;
+  font-size: 14px;
+}
+
+.item-desc {
+  font-size: 13px;
+  color: #718096;
+  margin: 0;
+  max-width: 500px;
+  line-height: 1.4;
+}
+
+.item-pricing {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.item-qty {
+  font-size: 14px;
+  font-weight: 700;
+  color: #4a5568;
+}
+
+.item-price {
+  font-size: 14px;
+  color: #718096;
+}
+
+.item-subtotal {
+  font-size: 14px;
+  font-weight: 700;
+  color: #2d3748;
+  margin-top: 2px;
+}
+
+/* ========================= */
+/* SALE FOOTER */
+/* ========================= */
+
+.sale-footer {
+  border-top: 1px solid #edf2f7;
+  padding-top: 15px;
+  margin-top: 20px;
+  text-align: right;
+}
+
+.sale-footer h3 {
+  font-size: 18px;
+  color: #4a5568;
+  margin: 0;
+}
+
+.total-amount {
+  font-size: 24px;
+  color: #2d3748;
+  font-weight: 800;
+  margin-left: 5px;
+}
+
+/* ========================= */
+/* EMPTY STATE */
+/* ========================= */
+
+.empty-sales {
+  text-align: center;
+  padding: 80px 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.empty-sales .material-symbols-outlined {
+  font-size: 64px;
+  color: #a0aec0;
+  margin-bottom: 20px;
+}
+
+.empty-sales h3 {
+  font-size: 28px;
+  margin: 0 0 10px 0;
+  color: #2d3748;
+}
+
+.empty-sales p {
+  color: #718096;
+  margin: 0 0 30px 0;
+}
+
+.browse-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.browse-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* ========================= */
+/* RESPONSIVE DESIGN */
+/* ========================= */
+
+@media (max-width: 600px) {
+  .sale-item {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .item-pricing {
+    text-align: left;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .item-subtotal {
+    margin-top: 0;
+    margin-left: auto;
+  }
+
+  .sale-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .sale-badge {
+    align-self: flex-start;
+  }
+}

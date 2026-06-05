@@ -3,6 +3,7 @@ import { StoreFrontLayout } from './layouts/store-front-layout/store-front-layou
 import { HomePage } from './pages/home-page/home-page';
 import { NotFoundPage } from './pages/not-found-page/not-found-page';
 import { CartPage } from '../cart/pages/cart-page/cart-page';
+import { SalesPage } from '../sales/pages/sales-page/sales-page';
 
 export const storeFrontRoutes: Routes = [
     {
@@ -17,6 +18,11 @@ export const storeFrontRoutes: Routes = [
             {
                 path: 'cart',
                 component: CartPage
+            },
+
+            {
+                path: 'sales',
+                component: SalesPage
             },
 
             {

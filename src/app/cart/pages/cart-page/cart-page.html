@@ -7,40 +7,34 @@
       <p>Revisa los vehículos seleccionados antes de comprar</p>
     </div>
 
-    @if (cart$ | async; as cart) {
+    @if (cartItems.length > 0) {
 
-      @if (cart.length > 0) {
+      <cart-card
+          [cart]="cartItems">
+      </cart-card>
 
-        <cart-card
-            [cart]="cart"
-            [remove]="remove"
-            [update]="update">
-        </cart-card>
+      <div class="cart-total">
+        <h3>Total: {{ getTotal() | currency:'EUR':'symbol':'1.0-0' }}</h3>
 
-        <div class="cart-total">
-          <h3>Total: {{ getTotal() | currency }}</h3>
+        <button class="checkout-btn" [disabled]="loading()" (click)="checkout()">
+          {{ loading() ? 'Procesando...' : 'Finalizar compra' }}
+        </button>
+      </div>
 
-          <button class="checkout-btn">
-            Finalizar compra
-          </button>
-        </div>
+    }
 
-      }
+    @else {
+      <div class="empty-cart">
+        <h3>Tu carrito está vacío</h3>
+        <span class="material-symbols-outlined">
+          shopping_cart_off
+        </span>
+        <p>Explora nuestro catálogo y añade vehículos increíbles</p>
 
-      @else {
-        <div class="empty-cart">
-          <h3>Tu carrito está vacío</h3>
-          <span class="material-symbols-outlined">
-            shopping_cart_off
-          </span>
-          <p>Explora nuestro catálogo y añade vehículos increíbles</p>
-
-          <a routerLink="/" class="back-btn">
-            Volver al catálogo
-          </a>
-        </div>
-      }
-
+        <a routerLink="/" class="back-btn">
+          Volver al catálogo
+        </a>
+      </div>
     }
 
   </section>

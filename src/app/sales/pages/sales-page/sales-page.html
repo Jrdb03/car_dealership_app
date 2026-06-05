@@ -1,0 +1,87 @@
+<div class="sales-container">
+
+  <section class="sales-section">
+
+    <div class="section-header">
+      <h2>Panel de Ventas</h2>
+      <p>Registro general de vehículos vendidos</p>
+    </div>
+
+    @if (loading()) {
+      <div class="loading-state">
+        <span class="loader"></span>
+        <p>Cargando historial de ventas...</p>
+      </div>
+    }
+
+    @else {
+
+      @if (sales().length > 0) {
+
+        <div class="sales-list">
+          @for (sale of sales(); track sale._id) {
+            <div class="sale-card">
+              <div class="sale-header">
+                <div class="sale-meta">
+                  <span class="sale-id">ID Compra: #{{ sale._id.substring(sale._id.length - 8) }}</span>
+                  <span class="sale-date">{{ sale.createdAt | date: 'dd/MM/yyyy HH:mm' }}</span>
+                </div>
+                <div class="sale-badge status-completed">
+                  Completada
+                </div>
+              </div>
+
+              <div class="sale-body">
+                @for (item of sale.items; track item._id || (isVehicleObject(item.vehicle) ? item.vehicle._id : item.vehicle)) {
+                  <div class="sale-item">
+                    <div class="item-details">
+                      <h4>
+                        @if (isVehicleObject(item.vehicle)) {
+                          {{ item.vehicle.brand }} {{ item.vehicle.model }}
+                          <span class="item-year">({{ item.vehicle.year || 'N/A' }})</span>
+                        } @else {
+                          Vehículo #{{ item.vehicle }}
+                        }
+                      </h4>
+                      @if (isVehicleObject(item.vehicle) && item.vehicle.description) {
+                        <p class="item-desc">
+                          {{ item.vehicle.description }}
+                        </p>
+                      }
+                    </div>
+                    <div class="item-pricing">
+                      <span class="item-qty">{{ item.quantity }}x</span>
+                      <span class="item-price">{{ item.price | currency:'EUR':'symbol':'1.0-0' }}</span>
+                      <span class="item-subtotal">Subtotal: {{ item.price * item.quantity | currency:'EUR':'symbol':'1.0-0' }}</span>
+                    </div>
+                  </div>
+                }
+              </div>
+
+              <div class="sale-footer">
+                <h3>Total Pagado: <span class="total-amount">{{ sale.total | currency:'EUR':'symbol':'1.0-0' }}</span></h3>
+              </div>
+            </div>
+          }
+        </div>
+
+      }
+
+      @else {
+        <div class="empty-sales">
+          <span class="material-symbols-outlined">
+            receipt_long
+          </span>
+          <h3>Aún no hay ventas registradas</h3>
+          <p>Cuando los clientes realicen compras, aparecerán en este registro.</p>
+          <a routerLink="/" class="browse-btn">
+            Ir al inicio
+          </a>
+        </div>
+      }
+
+    }
+
+  </section>
+
+</div>

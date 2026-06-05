@@ -8,30 +8,32 @@
         <h3>{{ item.name }}</h3>
 
         <p class="price">
-          {{ item.price | currency }}
+          {{ item.price | currency:'EUR':'symbol':'1.0-0' }}
         </p>
 
         <p class="subtotal">
-          Subtotal: {{ item.price * item.quantity | currency }}
+          Subtotal: {{ item.price * item.quantity | currency:'EUR':'symbol':'1.0-0' }}
         </p>
       </div>
 
       <div class="cart-actions">
 
         <button class="qty-btn"
-                (click)="update()(item.id, item.quantity - 1, item.stock)">
+                [disabled]="item.quantity <= 1"
+                (click)="update(item.id, item.quantity - 1, item.stock)">
           -
         </button>
 
         <span class="qty">{{ item.quantity }}</span>
 
         <button class="qty-btn"
-                (click)="update()(item.id, item.quantity + 1, item.stock)">
+                [disabled]="item.stock !== undefined && item.stock !== null && item.quantity >= item.stock"
+                (click)="update(item.id, item.quantity + 1, item.stock)">
           +
         </button>
 
         <button class="remove-btn"
-                (click)="remove()(item.id)">
+                (click)="remove(item.id)">
           Eliminar
         </button>
 
