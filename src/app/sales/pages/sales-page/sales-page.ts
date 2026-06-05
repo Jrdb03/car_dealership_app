@@ -23,8 +23,7 @@ export class SalesPage implements OnInit {
       next: (data) => {
         console.log('Sales API Response:', data);
         const rawSales = Array.isArray(data) ? data : ((data as any).sales || (data as any).data || []);
-        
-        // Sort sales by date descending
+
         const sorted = rawSales.sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
         this.sales.set(sorted);
         this.loading.set(false);

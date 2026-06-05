@@ -1,15 +1,20 @@
 <nav class="navbar">
   <div class="navbar-container">
-    <a routerLink="/" class="navbar-brand">
-      <span class="brand-highlight">Elite</span>Motors
-    </a>
+    <a routerLink="/" class="navbar-brand"> <span class="brand-highlight">Elite</span>Motors </a>
 
     <div class="navbar-links">
-      <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a>
+      <a
+        routerLink="/"
+        class="nav-link"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Inicio</a
+      >
 
       @if (authService.authStatus() === 'authenticated') {
         @if (authService.isAdmin()) {
           <a routerLink="/sales" class="nav-link" routerLinkActive="active">Ventas</a>
+          <a routerLink="/admin" class="nav-link" routerLinkActive="active">Panel de Administración</a>
         }
       }
     </div>
@@ -25,15 +30,13 @@
             }
           </a>
         }
-        
+
         <button class="btn-logout" (click)="logout()">
           <span class="material-symbols-outlined logout-icon">logout</span>
           Salir
         </button>
       } @else if (authService.authStatus() === 'not-authenticated') {
-        <a routerLink="/auth/login" class="btn-login">
-          Login
-        </a>
+        <a routerLink="/auth/login" class="btn-login"> Login </a>
       }
     </div>
   </div>

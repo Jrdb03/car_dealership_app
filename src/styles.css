@@ -2,7 +2,10 @@
 
 body {
   margin: 0;
-  padding-top: 100px; /* Provides space for the fixed top navbar */
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background-color: #f7fafc;
+}
+
+.with-navbar {
+  padding-top: 100px; 
 }

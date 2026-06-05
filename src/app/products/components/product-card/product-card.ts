@@ -19,7 +19,6 @@ export class ProductCard {
   private authService = inject(AuthService);
   private cartService = inject(CartService);
 
-  // acceso al template
   get auth() {
     return this.authService;
   }

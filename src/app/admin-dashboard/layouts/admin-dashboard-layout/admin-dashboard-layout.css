@@ -1,0 +1,199 @@
+.admin-shell {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: #f1f5f9;
+  color: #0f172a;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.admin-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 18rem;
+  background: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  overflow-y: auto;
+  padding: 1.5rem 1.5rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.admin-logo h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.admin-logo h1 span {
+  color: #2563eb;
+}
+
+.admin-logo p {
+  margin-top: 0.5rem;
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.admin-profile {
+  margin-top: 2rem;
+  padding: 1rem 0;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.profile-label {
+  margin: 0 0 0.75rem;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.profile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: #0f172a;
+}
+
+.profile-avatar-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  min-height: 2rem;
+  border-radius: 9999px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.08);
+}
+
+.profile-avatar {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+  border-radius: 9999px;
+}
+
+.profile-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.admin-nav {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.admin-nav-link,
+.admin-logout {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  gap: 0.75rem;
+  padding: 0.95rem 1rem;
+  border-radius: 1rem;
+  color: #0f172a;
+  background: #f8fafc;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+  border: 1px solid transparent;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.admin-nav-link:hover,
+.admin-logout:hover {
+  background: #f1f5f9;
+  transform: translateX(1px);
+}
+
+.admin-nav-link.active {
+  background: #dbeafe;
+  border-color: #bfdbfe;
+}
+
+.nav-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.25rem;
+  min-height: 2.25rem;
+  border-radius: 0.75rem;
+  background: #e2e8f0;
+  color: #0f172a;
+  font-size: 1rem;
+}
+
+.nav-title {
+  display: block;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.nav-subtitle {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.82rem;
+  color: #64748b;
+}
+
+.admin-divider {
+  margin: 1.5rem 0;
+  height: 1px;
+  width: 100%;
+  background: #e2e8f0;
+}
+
+.admin-logout {
+  cursor: pointer;
+  background: #ffefef;
+  color: #d81d3c;
+  border: 1px solid #febfbf;
+}
+
+.admin-main {
+  margin-left: 18rem;
+  width: calc(100vw - 18rem);
+  min-height: 100vh;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.admin-main-inner {
+  max-width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .admin-sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .admin-main {
+    margin-left: 0;
+    width: 100%;
+    padding-top: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .admin-shell {
+    flex-direction: column;
+  }
+
+  .admin-nav-link,
+  .admin-logout {
+    padding: 0.9rem 0.9rem;
+  }
+
+  .admin-main {
+    padding: 1rem;
+  }
+}

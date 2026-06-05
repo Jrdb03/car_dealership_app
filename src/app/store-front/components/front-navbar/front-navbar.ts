@@ -15,7 +15,7 @@ export class FrontNavbar {
 
   authService = inject(AuthService);
   cartService = inject(CartService);
-  private router = inject(Router);
+  public router = inject(Router);
 
   cartCount = this.cartService.cart.pipe(
     map(items => items.reduce((sum, item) => sum + item.quantity, 0))
